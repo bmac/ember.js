@@ -5,14 +5,33 @@ var get = Ember.get;
 @submodule ember-routing
 */
 
+/**
+  @private
+
+  @method controllerFor
+  @for Ember
+  @param {Object} container
+  @param {String} controllerName
+  @param {Object} lookupOptions
+  @return {Object} controller instance
+*/
 Ember.controllerFor = function(container, controllerName, lookupOptions) {
   return container.lookup('controller:' + controllerName, lookupOptions);
 };
-/*
+/**
+  @private
+
   Generates a controller automatically if none was provided.
   The type of generated controller depends on the context.
   You can customize your generated controllers by defining
   `App.ObjectController` and `App.ArrayController`
+
+  @method generateController
+  @for Ember
+  @param {Object} container
+  @param {String} controllerName
+  @param {Object} context
+  @return {Object} controller instance
 */
 Ember.generateController = function(container, controllerName, context) {
   var controller, DefaultController, fullName, instance;
